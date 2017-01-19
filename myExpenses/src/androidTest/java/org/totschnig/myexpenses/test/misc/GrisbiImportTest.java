@@ -20,7 +20,8 @@ import android.util.SparseArray;
 
 import junit.framework.Assert;
 
-import org.totschnig.myexpenses.test.R;
+//import org.totschnig.myexpenses.test.R.*;
+import org.totschnig.myexpenses.test.*;
 import org.totschnig.myexpenses.util.CategoryTree;
 import org.totschnig.myexpenses.util.Result;
 import org.totschnig.myexpenses.util.Utils;
@@ -44,7 +45,7 @@ public class GrisbiImportTest extends InstrumentationTestCase {
   }
   */
   public void testGrisbi6() {
-    Result result = analyze(R.raw.grisbi);
+    Result result = analyze(org.totschnig.myexpenses.debug.test.R.raw.grisbi);
     Assert.assertEquals(true, result.success);
     CategoryTree catTree = (CategoryTree) result.extra[0];
     SparseArray<CategoryTree> main = catTree.children();
@@ -54,7 +55,7 @@ public class GrisbiImportTest extends InstrumentationTestCase {
     Assert.assertEquals("Peter Schnock",partiesList.get(0));
   }
   public void testGrisbi5() {
-    Result result = analyze(R.raw.grisbi_050);
+    Result result = analyze(org.totschnig.myexpenses.debug.test.R.raw.grisbi_050);
     Assert.assertEquals(true, result.success);
     CategoryTree catTree = (CategoryTree) result.extra[0];
     SparseArray<CategoryTree> main = catTree.children();
@@ -64,24 +65,25 @@ public class GrisbiImportTest extends InstrumentationTestCase {
     Assert.assertEquals("Peter Schnock",partiesList.get(0));
   }
   public void testGrisbiParseError() {
-    Result result = analyze(R.raw.grisbi_error);
+    Result result = analyze(org.totschnig.myexpenses.debug.test.R.raw.grisbi_error);
     Assert.assertEquals(false, result.success);
     Assert.assertEquals(org.totschnig.myexpenses.R.string.parse_error_parse_exception, result.getMessage());
   }
   public void testGrisbi7() {
-    Result result = analyze(R.raw.grisbi_070);
+    Result result = analyze(org.totschnig.myexpenses.debug.test.R.raw.grisbi_070);
     Assert.assertEquals(false, result.success);
     Assert.assertEquals(org.totschnig.myexpenses.R.string.parse_error_grisbi_version_not_supported, result.getMessage());
     Assert.assertEquals("0.7.0", (String) result.extra[0]);
   }
   public void testGrisbi4() {
-    Result result = analyze(R.raw.grisbi_040);
+    Result result = analyze(org.totschnig.myexpenses.debug.test.R.raw.grisbi_040);
     Assert.assertEquals(false, result.success);
     Assert.assertEquals(org.totschnig.myexpenses.R.string.parse_error_grisbi_version_not_supported, result.getMessage());
     Assert.assertEquals("0.4.0", (String) result.extra[0]);
   }
   public void testGrisbiEmpty() {
-    Result result = analyze(R.raw.grisbi_empty);
+    Result result = analyze(org.totschnig.myexpenses.debug.test.R.raw.grisbi_empty);
+      //Result result = analyze(R.raw.grisbi_empty);
     Assert.assertEquals(false, result.success);
     Assert.assertEquals(org.totschnig.myexpenses.R.string.parse_error_no_data_found, result.getMessage());
   }

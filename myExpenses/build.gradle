@@ -65,7 +65,7 @@ android {
         exclude 'META-INF/dependencies.txt'
         exclude 'META-INF/LGPL2.1'
     }
-    testBuildType "release"
+    testBuildType "debug"
 }
 
 dependencies {
@@ -90,6 +90,7 @@ dependencies {
     compile 'com.squareup.picasso:picasso:2.5.2'
     compile 'com.github.PhilJay:MPAndroidChart:bd75e6c'
     compile 'com.github.mtotschnig:Caldroid:master-SNAPSHOT'
+
     //noinspection GradleDynamicVersion
     compile 'com.commonsware.cwac:wakeful:1.0.+'
     androidTestCompile 'com.android.support.test.espresso:espresso-core:' + project.espressoVersion

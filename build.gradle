@@ -4,7 +4,7 @@ buildscript {
         jcenter()
     }
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.2'
+        classpath 'com.android.tools.build:gradle:2.2.0'
         classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
     }
 }
@@ -28,7 +28,7 @@ allprojects {
 ext {
     compileSdkVersion = 25
     buildToolsVersion = "25"
-    minSdkVersion = 9
+    minSdkVersion = 18
     targetSdkVersion = 23
     androidSupportLibraryVersion = "25.0.0"
     espressoVersion = "2.2.2"

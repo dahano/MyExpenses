@@ -13,7 +13,7 @@ import org.totschnig.myexpenses.util.Utils;
 public final class MyTestRunner extends AndroidJUnitRunner {
   private boolean ANIMATION_SETTINGS_MANUALLY_CHECKED = false;
   public MyTestRunner() {
-    // Inform the app we are an instrumentation test before the object graph is initialized.
+   // Inform the app we are an instrumentation test before the object graph is initialized.
     Log.d("instrumentationTest", "now setting instrumentationTest to true");
     MyApplication.setInstrumentationTest(true);
   }

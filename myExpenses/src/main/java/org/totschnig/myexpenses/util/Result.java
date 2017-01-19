@@ -58,6 +58,7 @@ public class Result {
     this.message = message;
     this.extra = extra;
   }
+
   public Result(boolean success,String messageString) {
     this.message = 0;
     this.messageString = messageString;

@@ -152,12 +152,6 @@ public final class MyExpensesCabTest extends MyExpensesTestBase {
       onView(withText(R.string.dialog_contrib_no)).perform(click());
     }
     onView(withText(R.string.split_transaction)).check(matches(isDisplayed()));
-    //CursoMatchers class does not allow to distinguish between null and 0 in database
-/*    onData(CursorMatchers.withRowLong(DatabaseConstants.KEY_CATID, DatabaseConstants.SPLIT_CATID))
-        .inAdapterView(allOf(
-            isAssignableFrom(AdapterView.class),
-            isDescendantOfA(withId(R.id.list)),
-            isDisplayed())).check(matches(isDisplayed()));*/
   }
 
   private StickyListHeadersListView getList() {
@@ -165,10 +159,6 @@ public final class MyExpensesCabTest extends MyExpensesTestBase {
       return (StickyListHeadersListView) currentFragment.getView().findViewById(R.id.list);
   }
 
-  /**
-   * @param legacyString String used on Gingerbread where context actions are rendered in a context menu
-   * @param cabId id of menu item rendered in CAB on Honeycomb and higher
-   */
   private void performContextMenuClick(int legacyString, int cabId) {
     onView(Utils.hasApiLevel(Build.VERSION_CODES.HONEYCOMB) ? withId(cabId) : withText(legacyString))
         .perform(click());

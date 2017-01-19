@@ -111,15 +111,17 @@ public class ExpenseEditTest {
   }
 
   @Test
-  public void currencyInExtraShouldPopulateSpinner() {
+  public void currencyInExtraShouldPopulateSpinner() throws InterruptedException {
     Currency[] allCurrencies = {currency1, currency2};
-    for (Currency c: allCurrencies) {
+      for (Currency c: allCurrencies) {
       //we assume that Fixture has set up the default account with id 1
       Intent i = new Intent(Intent.ACTION_EDIT);
       i.setClassName("org.totschnig.myexpenses.activity", "org.totschnig.myexpenses.activity.ExpenseEdit");
       i.putExtra("operationType", MyExpenses.TYPE_TRANSACTION);
       i.putExtra(DatabaseConstants.KEY_CURRENCY, c.getCurrencyCode());
+          Thread.sleep(3000);
       mActivityRule.launchActivity(i);
+          Thread.sleep(3000);
       assertEquals("Account is not selected", c, mActivityRule.getActivity().getCurrentAccount().currency);
       mActivityRule.getActivity().finish();
     }
